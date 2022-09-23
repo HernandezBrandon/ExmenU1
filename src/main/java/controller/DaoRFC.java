@@ -72,13 +72,14 @@ public class DaoRFC {
             rs = pstm.executeQuery();
             if (rs.next()){
                 bean=new BeanRFC();
-                bean.setNombre(rs.getString("Nombre"));
-                bean.setApellido1(rs.getString("Apellido1"));
-                bean.setApellido2(rs.getString("Apellido2"));
-                bean.setCurp(rs.getString("CURP"));
-                bean.setFecha(rs.getString("Fecha"));
-                bean.setRfc(rs.getString("RFC"));
-
+               String nom,ap1,ap2,curp,fec,rfc2;
+                nom= bean.setNombre(rs.getString("Nombre"));
+                ap1=bean.setApellido1(rs.getString("Apellido1"));
+                ap2=bean.setApellido2(rs.getString("Apellido2"));
+                curp=bean.setCurp(rs.getString("CURP"));
+                fec=bean.setFecha(rs.getString("Fecha"));
+                rfc2=bean.setRfc(rs.getString("RFC"));
+                result="Nombre: "+nom+"\nPrimer Apellido: "+ap1+"\nSegundo Apellido: "+ap2+"\nCURP: "+curp+"\nFecha de nacimiento: "+fec+"\nRFC: "+rfc2;
             }
 
         }catch (SQLException e){
