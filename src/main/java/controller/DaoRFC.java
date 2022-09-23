@@ -63,8 +63,9 @@ public class DaoRFC {
 
     }
 
-    public BeanRFC consultar(String rfc){
+    public String consultar(String rfc){
         BeanRFC bean =null;
+        String result="";
         try{
             con = MySQLConnection.getConnection();
             pstm = con.prepareStatement(mostrar);
@@ -72,7 +73,7 @@ public class DaoRFC {
             rs = pstm.executeQuery();
             if (rs.next()){
                 bean=new BeanRFC();
-               String nom,ap1,ap2,curp,fec,rfc2;
+                String nom,ap1,ap2,curp,fec,rfc2;
                 nom= bean.setNombre(rs.getString("Nombre"));
                 ap1=bean.setApellido1(rs.getString("Apellido1"));
                 ap2=bean.setApellido2(rs.getString("Apellido2"));
@@ -92,7 +93,7 @@ public class DaoRFC {
                 System.out.println("Error al cerrar conexiones "+e.getMessage());
             }
         }
-        return bean;
+        return result;
     }
 
     /*
