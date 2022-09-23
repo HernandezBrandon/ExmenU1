@@ -89,7 +89,11 @@ public class Cliente {
                 case 3:
                     System.out.println("Ingresa el RFC");
                     rfc= leer.next();
-                    System.out.println(dao.consultar(rfc));
+                    if(dao.mostrarRFC(rfc)) {
+                        System.out.println(dao.consultar(rfc));
+                    }else{
+                        System.out.println("No se encontro RFC");
+                    }
                     break;
                 case 4:
                     System.out.println("Ingresa el RFC a eliminar");
